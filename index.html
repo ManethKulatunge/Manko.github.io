@@ -1,63 +1,29 @@
 <html>
-    <script src="https://unpkg.com/pts@0.8.3/dist/pts.js"></script>
-    <head>
-            <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-    <script>// Source code licensed under Apache License 2.0. 
-        // Copyright © 2017 William Ngan. (https://github.com/williamngan/pts)
-        <canvas id="pt" width="1590" height="300" style="width: 100%; height: 100%;"></canvas>
-        window.demoDescription = "Using Perlin noise to animate a line and a grid. Move mouse or touch around the canvas to change speed.";
+
+        <body style="font-family: sans-serif; margin: 0;">
+            <div id="pt" class="header container" style="background: transparent;"> </div>
+            <div class="row">
+
+              <div class="col-md-2"></div>
+              <div id="wrapper" class="col-md-10">
+                <h1 class="animated fadeIn">MANETH KULATUNGE</h1>
+                <div class="animated fadeIn" id="smallDivider"></div>
+      
+                <h2 class="animated fadeIn">Incoming New Grad Software Engineer at <b>Amazon</b>.</h2>
+                <h2 class="animated fadeIn">Previously at <b>Deloitte</b>, <b>Datalogue</b>, <b>BlackBerry</b>.</h2>
+                <ul class="socialMediaButtons">
+                  <li id="two" class="animated zoomInUp buttons hvr-grow2"><a href="resume.pdf" target="_blank" id="resume" class="hvr-grow"><img src="images/pdf.svg" height="25px" class="animated zoomIn"></a></li>                  
+                  <li id="three" class="animated zoomInUp buttons hvr-grow2"><a href="https://github.com/hashbrownmap" target="_blank"><img src="images/github.svg" height="26px"></a></li>
+                  <li id="four" class="animated zoomInUp buttons hvr-grow2"><a href="https://www.linkedin.com/in/tony-chen-08366b12a/" target="_blank"><img src="images/linkedin.svg" height="51px"></a></li>
+                </ul>
+            </div>
+
+            </div>
+            
+          </div>
+      
+      
         
-        Pts.quickStart( "#pt", "#000000" );
-        
-        //// Demo code starts (anonymous function wrapper is optional) ---
-        
-        (function() {
-        
-          let noiseLine = [];
-          let noiseGrid = [];
-        
-          space.add({ 
-        
-            start: (bound) => {
-        
-              // Create a line and a grid, and convert them to `Noise` points
-              let ln = Create.distributeLinear( [new Pt(0, space.center.y), new Pt(space.width, space.center.y)], 30 );
-              let gd = Create.gridPts( space.innerBound, 20, 20 );
-              noiseLine = Create.noisePts( ln, 0.1, 0.1 );
-            },
-        
-            animate: (time, ftime) => {
-        
-              // Use pointer position to change speed
-              let speed = space.pointer.$subtract( space.center ).divide( space.center ).abs();
-        
-              // Generate noise in a grid
-              noiseGrid.map( (p) => {
-                p.step( 0.01*speed.x, 0.01*(1-speed.y) );
-                form.fillOnly("#123").point( p, Math.abs( p.noise2D() * space.size.x/18 ) );
-              });
-        
-              // Generate noise in a line
-              let nps = noiseLine.map( (p) => {
-                p.step( 0.01*(1-speed.x), 0.05*speed.y );
-                return p.$add( 0, p.noise2D()*space.center.y );
-              });
-        
-              // Draw wave
-              nps = nps.concat( [space.size, new Pt( 0, space.size.y )] );
-              form.fillOnly("rgba(0,0,0,.5)").polygon( nps );
-              form.fill("#fff").points( nps, 1, "circle");
-            }
-          
-          });
-          
-          //// ----
-          
-        
-          space.bindMouse().bindTouch().play();
-        
-        })();</script>
-        </body>
-</html>
+</body>
+  
+<html>
