@@ -528,10 +528,19 @@ ul {
 
 h3{
   position: relative;
-  left: 700px;
   color:blue;
   font-family: 'Nunito', sans-serif !important;
   font-weight: 300 !important;
   font-size: 20px !important;
   letter-spacing: 1px;
+  display:inline;
+}
+
+.h3one {
+  position: relative;
+  left: 950px;
+}
+.h3two {
+  position: relative;
+  left: 1000px;
 }
